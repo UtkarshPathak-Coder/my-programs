@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-	int i,gr_mat[6][6],ch,deg[6],temp,indegree[6]={0,0,0,0,0,0},outdegree[6]={0,0,0,0,0,0},j;
+	int i,max_deg,gr_mat[6][6],ch,deg[6],temp,indegree[6]={0,0,0,0,0,0},outdegree[6]={0,0,0,0,0,0},j;
 	
 	printf("Enter the type of graph 1-Undirected Graph\t2-Directed Graph : ");
 	scanf("%d",&ch);
@@ -30,9 +30,11 @@ int main()
 			 		if(gr_mat[i][j]==1)
 			 			deg[i]++;			//to find the degree of each vertex
 			 	}
+				if(deg[i]>max_deg)
+					max_deg=deg[i];
 			  }
 			  
-			  for(i=0;i<6;i++)
+			/*  for(i=0;i<6;i++)
 			  {
 			 	
 			 	for(j=i;j<6;j++)				//sorting the degrees in descending oreder						
@@ -45,8 +47,8 @@ int main()
 			 			
 			 		}
 			 	}
-			 }
-			 printf("\nThe degree of the graph is %d\n",deg[0]); //the degree of graph is first element of sorted degrees 
+			 }*/
+			 printf("\nThe degree of the graph is %d\n",max_deg); //the degree of graph is first element of sorted degrees 
 			 break;
 			 
 		case 2:for(i=0;i<6;i++)
